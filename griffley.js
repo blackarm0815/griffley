@@ -1,13 +1,13 @@
 "use strict";
 // this function will take the api data and go through the moves
-var processMoves = function (pokemon) {
-    pokemon.moves.forEach(function (moveBlock) {
+const processMoves = (pokemon) => {
+    pokemon.moves.forEach((moveBlock) => {
         // find the unordered list element
-        var unordered = document.getElementById('bulbasaurMoves');
+        const unordered = document.getElementById('bulbasaurMoves');
         // if it exists add a line to it
         if (unordered !== null) {
             // this is a cleaner way of creating html elements
-            var line = document.createElement('li');
+            const line = document.createElement('li');
             // put the text in the line element
             line.innerText = moveBlock.move.name;
             // parent the line to the unordered list
@@ -21,8 +21,8 @@ var processMoves = function (pokemon) {
 // i simplified this part to just grab the data and pass it to a function
 // this makes it less cluttered and easier to work with
 fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
-    .then(function (res) { return res.json(); })
-    .then(function (data) { return processMoves(data); });
+    .then((res) => res.json())
+    .then((data) => processMoves(data));
 // "moves":
 // [
 //   {"move":{
