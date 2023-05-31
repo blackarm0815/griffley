@@ -1,6 +1,6 @@
-// this is a simplified version of the pokemon data
+// this is a simplified version of the pokemon data in data.json
 // i have isolated only the parts that are used
-
+//
 // {
 //   "moves":[
 //     {
