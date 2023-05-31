@@ -1,3 +1,21 @@
+// this is a simplified version of the pokemon data
+// i have isolated only the parts that are used
+
+// {
+//   "moves":[
+//     {
+//       "move":{
+//         "name":"razor-wind"
+//       }
+//     },
+//     {
+//       "move":{
+//         "name":"swords-dance"
+//       }
+//     }
+//   ]
+// }
+
 // this describes the top level of the api data
 interface PokemonData {
   moves: Array<MoveBlock>,
@@ -34,14 +52,7 @@ const processMoves = (
 
 // i simplified this part to just grab the data and pass it to a function
 // this makes it less cluttered and easier to work with
-
 fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
   .then((res) => res.json())
-  .then((data) => processMoves(data));
-
-// "moves":
-// [
-//   {"move":{
-//     "name":"razor-wind",
-//     "url":"https://pokeapi.co/api/v2/move/13/"
-//   },
+  .then((data) => processMoves(<PokemonData>data))
+  .catch(() => '');

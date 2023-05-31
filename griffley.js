@@ -1,4 +1,18 @@
 "use strict";
+// {
+//   "moves":[
+//     {
+//       "move":{
+//         "name":"razor-wind"
+//       }
+//     },
+//     {
+//       "move":{
+//         "name":"swords-dance"
+//       }
+//     }
+//   ]
+// }
 // this function will take the api data and go through the moves
 const processMoves = (pokemon) => {
     pokemon.moves.forEach((moveBlock) => {
@@ -22,10 +36,5 @@ const processMoves = (pokemon) => {
 // this makes it less cluttered and easier to work with
 fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
     .then((res) => res.json())
-    .then((data) => processMoves(data));
-// "moves":
-// [
-//   {"move":{
-//     "name":"razor-wind",
-//     "url":"https://pokeapi.co/api/v2/move/13/"
-//   },
+    .then((data) => processMoves(data))
+    .catch(() => '');
